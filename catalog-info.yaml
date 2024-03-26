@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "demo-spec-mr"
+  description: "demo-spec-mr"
+  annotations:
+    github.com/project-slug: veecode-homolog/demo-spec-mr
+    backstage.io/techdocs-ref: dir:.
+    github.com/workflows: publish.yml
+    kong-manager/service-name: app.demo-spec-mr.demo-spec-mr-service-0.80
+    kong-manager/instance: /kong-manager/cluster-veecode
+spec:
+  type: devops
+  lifecycle: experimental
+  owner: "group:default/admin"
+  providesApis:
+    - demo-spec-mr

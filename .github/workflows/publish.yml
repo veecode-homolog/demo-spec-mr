@@ -97,14 +97,7 @@ jobs:
            sed -i "s|$CERTIFICATE|    insecure-skip-tls-verify: true|g" ~/.kube/config
            sed -i "s|0.0.0.0|${{ env.Host }}|g" ~/.kube/config
            kubectl create ns app --dry-run=client -o yaml | kubectl apply -f -
-           kubectl apply -f ./kubernetes.yaml -n app  
-
-      - name: Temporarily disable branch protection
-        uses: benjefferies/branch-protection-bot@master
-        if: always()
-        with:
-          access_token: ${{'${{'}} secrets.API_TOKEN_GITHUB ${{'}}'}}
-          branch: ${{'${{'}} github.event.repository.default_branch ${{'}}'}}        
+           kubectl apply -f ./kubernetes.yaml -n app        
  
       - name: Publish Catalogo Info
         uses: dmnemec/copy_file_to_another_repo_action@main
